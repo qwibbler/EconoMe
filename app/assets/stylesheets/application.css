@@ -5,11 +5,122 @@
  * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
  * vendor/assets/stylesheets directory can be referenced here using a relative path.
  *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
  */
+
+@font-face {
+  font-family: 'Charlotte_Southern';
+  src: url('/assets/Charlotte_Southern.otf');
+}
+
+@font-face {
+  font-family: 'Swash';
+  src: url('/assets/Charlotte_Southern_Swash.otf');
+}
+
+html,
+body {
+  margin: 0;
+
+  --color_main: #3778c2;
+  --color_second: #5fb523;
+  --color_text: #434b54;
+  --color_bg: #f1f3f2;
+}
+
+html * {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  background-color: var(--color_bg);
+}
+
+.notice {
+  color: green;
+}
+
+.alert {
+  color: red;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Homepage */
+section.splash {
+  justify-content: space-between;
+}
+
+.headline {
+  font-family: 'Charlotte_Southern', cursive;
+  font-size: 4.5rem;
+  text-align: center;
+  margin-top: calc(50vh - 4.5rem);
+}
+
+.headline.text {
+  line-height: 0.3;
+  margin-bottom: 0;
+}
+
+.headline.me {
+  font-size: 5.5rem;
+}
+
+.headline.swash {
+  font-family: 'Swash', fantasy;
+  font-size: 6.5rem;
+  margin-top: 0;
+  line-height: 0;
+}
+
+.main_buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.button_to {
+  width: 100%;
+  display: flex;
+}
+
+input[type="submit"],
+button {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--color-bg);
+}
+
+.main_btn {
+  font-size: 1rem;
+  padding: 1rem;
+  margin: 0.5rem;
+  margin-bottom: 0;
+}
+
+.main_btn:hover,
+.main_btn:active,
+.main_btn:focus {
+  background-color: var(--color_main);
+  color: var(--color_bg);
+}
+
+/* Forms */
+.actions,
+.field {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 0.5rem;
+  background-color: #fff;
+}
