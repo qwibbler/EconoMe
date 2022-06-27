@@ -26,6 +26,9 @@ body {
   --color_main: #3778c2;
   --color_second: #5fb523;
   --color_text: #434b54;
+  --color_text_v1: #555e67;
+  --color_text_v2: #878a8f;
+  --color_text_v3: #989da3;
   --color_bg: #f1f3f2;
 }
 
@@ -34,6 +37,7 @@ html * {
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
   background-color: var(--color_bg);
+  color: var(--color_text);
 }
 .notice {
   color: green;
@@ -90,7 +94,7 @@ section.splash {
   width: 100%;
   display: flex;
   padding: 0.5rem;
-  margin-bottom: 0;
+  padding-top: 0;
 }
 
 input[type="submit"],
@@ -114,6 +118,7 @@ form {
   display: flex;
   flex-direction: column;
   margin: 0;
+  padding-top: 2rem;
   justify-content: space-between;
   align-items: center;
   height: 100%;
@@ -130,4 +135,14 @@ input {
   background-color: #fff;
   width: 100%;
   border: 1px solid var(--color_bg);
+}
+
+.links {
+  text-align: center;
+}
+
+.links * {
+  color: var(--color_text_v3);
+  text-decoration: none;
+  margin-top: 0.5rem;
 }
