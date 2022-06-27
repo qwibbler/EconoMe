@@ -89,38 +89,45 @@ section.splash {
 .button_to {
   width: 100%;
   display: flex;
+  padding: 0.5rem;
+  margin-bottom: 0;
 }
 
 input[type="submit"],
 button {
+  cursor: pointer;
   width: 100%;
-  padding: 0.5rem;
   background-color: var(--color-bg);
-}
-
-.main_btn {
   font-size: 1rem;
   padding: 1rem;
-  margin: 0.5rem;
-  margin-bottom: 0;
+  margin: 0;
 }
 
-.main_btn:hover,
-.main_btn:active,
-.main_btn:focus {
+input[type="submit"].active,
+button.active {
   background-color: var(--color_main);
   color: var(--color_bg);
 }
 
 /* Forms */
-.actions,
-.field {
-  margin: 1rem;
+form {
   display: flex;
   flex-direction: column;
+  margin: 0;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.actions,
+.field {
+  display: flex;
+  width: 100vw;
 }
 
 input {
-  padding: 0.5rem;
+  padding: 1rem;
   background-color: #fff;
+  width: 100%;
+  border: 1px solid var(--color_bg);
 }
