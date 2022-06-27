@@ -1,0 +1,2 @@
+class EntityGroup < ApplicationRecord
+end
