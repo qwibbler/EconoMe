@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+html * {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+
+  --color_main: #3778c2;
+  --color_second: #5fb523;
+  --color_text: #434b54;
+}
