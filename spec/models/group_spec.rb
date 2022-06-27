@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Group, type: :model do
   subject do
-    u = User.new(name: 'John')
+    u = User.new(name: 'John', email: 'john@example.com', password: 'password')
     Group.new(
       user: u,
       name: 'Fast Foods',
