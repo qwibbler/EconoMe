@@ -29,12 +29,12 @@ body {
   --color_bg: #f1f3f2;
 }
 
-
 html * {
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
   background-color: var(--color_bg);
 }
+
 .notice {
   color: green;
 }
