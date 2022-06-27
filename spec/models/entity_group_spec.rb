@@ -1,5 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe EntityGroup, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject do
+    u = User.new(name: 'John')
+    e = Entity.new(user: u, name: 'McD', amount: 5)
+    g = Group.new(user: u, name: 'Food', icon: 'icon')
+    EntityGroup.new(entity: e, group: g)
+  end
+  before(:example) { subject.save }
+
+  it 'should be valid' do
+    expect(subject).to be_valid
+  end
 end
