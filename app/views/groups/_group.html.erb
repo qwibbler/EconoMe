@@ -1,11 +1,13 @@
-<%= image_tag group.icon || 'icon', style: 'height:64px;width:64px', class: 'grp-icon' %>
-<div class="grp-text wrapper">
-  <div class="grp-text txt-top">
-    <h5><%= group.name %></h5>
-    <h4><%= 'price' %></h4>
+<%= link_to group, class: "grp box" do %>
+  <%= image_tag group.icon || 'icon', style: 'height:64px;width:64px', class: 'grp-icon' %>
+  <div class="grp-text wrapper">
+    <div class="grp-text txt-top">
+      <h5><%= group.name %></h5>
+      <h4><%= 'price' %></h4>
+    </div>
+    <hr>
+    <div class="grp-text txt-bottom">
+      <small><%= group.updated_at.strftime("%d-%m-%Y") %></small>
+    </div>
   </div>
-  <hr>
-  <div class="grp-text txt-bottom">
-    <small><%= group.updated_at.strftime("%d-%m-%Y") %></small>
-  </div>
-</div>
+<% end %>

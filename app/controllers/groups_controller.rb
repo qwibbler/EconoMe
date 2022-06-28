@@ -82,7 +82,7 @@ class GroupsController < ApplicationController
   private
 
   def redirect
-    render root_path unless current_user
+    redirect_to root_path unless current_user
   end
 
   # Use callbacks to share common setup or constraints between actions.

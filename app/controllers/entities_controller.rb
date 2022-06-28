@@ -1,5 +1,6 @@
 class EntitiesController < ApplicationController
   before_action :set_entity, only: %i[show edit update destroy]
+  before_action :redirect
 
   # GET /entities or /entities.json
   def index
@@ -12,6 +13,7 @@ class EntitiesController < ApplicationController
   # GET /entities/new
   def new
     @entity = Entity.new
+    @entity.entity_groups.build
   end
 
   # GET /entities/1/edit
@@ -57,6 +59,10 @@ class EntitiesController < ApplicationController
 
   private
 
+  def redirect
+    redirect_to root_path unless current_user
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_entity
     @entity = Entity.find(params[:id])
@@ -64,6 +70,6 @@ class EntitiesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def entity_params
-    params.fetch(:entity, {})
+    params.require(:entity).permit(:name, :amount, entity_groups_attributes: [:group_id]).merge(user: current_user)
   end
 end

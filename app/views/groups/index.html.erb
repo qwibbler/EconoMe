@@ -1,9 +1,7 @@
 <section id="groups" class="padding">
   <div class="index_items">
     <% @groups.each do |group| %>
-      <%= link_to group, class: "grp box" do %>
-        <%= render group %>
-      <% end %>
+      <%= render group %>
     <% end %>
   </div>
 

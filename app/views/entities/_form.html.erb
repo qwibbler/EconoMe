@@ -1,8 +1,8 @@
 <%= form_with(model: entity) do |f| %>
+  <div class="fields">
   <% if entity.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(entity.errors.count, "error") %> prohibited this entity from being saved:</h2>
-
+    <div class="alert">
+      <h3><%= pluralize(entity.errors.count, "error") %> prohibited this entity from being saved:</h3>
       <ul>
         <% entity.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,19 +11,20 @@
     </div>
   <% end %>
 
-  <div class="fields">
     <div class="field">
       <%= f.text_field :name, placeholder: t("ent_name"), autofocus: true, autocomplete: "name" %>
     </div>
     <div class="field">
       <%= f.text_field :amount, placeholder: t("ent_amount"), autocomplete: "amount" %>
     </div>
-    <div class="field">
-      <%= f.collection_select(:group_id, Group.all, :id, :name, {prompt: "Please Select Groups for this Entity:"}, {multiple: true}) %>
-    </div>
+    <%= f.fields_for :entity_groups do |egf| %>
+      <div class="field">
+        <%= egf.collection_select :group_id, current_user.groups.all, :id, :name, {} %>
+      </div>
+    <% end %>
   </div>
 
   <div class="actions">
-    <%= f.submit t('save') %>
+    <%= f.submit t('save'), class: "active" %>
   </div>
 <% end %>
