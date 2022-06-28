@@ -1,9 +1,11 @@
 <section id="groups" class="padding">
+  <div class="index_items">
     <% @groups.each do |group| %>
       <%= link_to group, class: "grp box" do %>
         <%= render group %>
       <% end %>
     <% end %>
+  </div>
 
-  <%= link_to "New group", new_group_path %>
+  <div class="actions"><%= button_to "New Group", new_group_path, method: :get, class: "active" %></div>
 </section>

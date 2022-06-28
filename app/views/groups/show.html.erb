@@ -5,14 +5,13 @@
       <%= @group.name %>
     </h2>
     <hr>
-    <%= render @transactions %>
+    <%# render @transactions %>
     </div>
   </div>
 
-  <div>
-    <%= link_to "Edit this group", edit_group_path(@group) %> |
-    <%= link_to "Back to groups", groups_path %>
-
-    <%= button_to "Destroy this group", @group, method: :delete %>
+  <div class="actions">
+    <%= button_to "Edit this Group", edit_group_path(@group), method: :get %>
+    <%= button_to "Back to Groups", groups_path, method: :get %>
+    <%= button_to "Destroy this Group", @group, method: :delete %>
   </div>
 </section>

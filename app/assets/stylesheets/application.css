@@ -49,21 +49,22 @@ html * {
   text-align: center;
 }
 
-section {
+section,
+.index_items {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+}
+
+section {
+  justify-content: space-between;
   padding: 0.5rem;
   height: 100vh;
   width: 100vw;
 }
 
 /* Homepage */
-section.splash {
-  justify-content: space-between;
-}
-
 .headline {
   font-family: 'Charlotte_Southern', cursive;
   font-size: 4.5rem;
@@ -129,6 +130,8 @@ form {
 .actions,
 .field {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100vw;
 }
 
@@ -156,6 +159,7 @@ option[value=""] {
 }
 
 /* Categories */
+
 .box {
   display: flex;
   justify-content: space-between;
