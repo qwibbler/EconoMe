@@ -199,14 +199,23 @@ option[value=""] {
   color: var(--color_text);
 }
 
-.grp-text hr {
+hr {
   width: 100%;
-  margin: 0;
   border: 1px solid #eee;
+}
+.grp-text hr {
+  margin: 0;
 }
 
 /* Transactions */
+.group {
+  flex-direction: column;
+}
+
 .group h2 {
-  display: flex;
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
+  margin: 0;
 }

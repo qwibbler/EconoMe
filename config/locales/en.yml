@@ -42,6 +42,8 @@ en:
   update: Update
   cancel_account: Cancel Account
   back: Back
+  save: Save
   grp_name: Group Name
   icon: Icon
   select_icon: Select an Icon
+  add_trns: Add Transaction

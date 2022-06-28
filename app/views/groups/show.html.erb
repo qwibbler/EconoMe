@@ -2,14 +2,16 @@
   <div class="group box">
     <h2>
       <%= image_tag @group.icon || 'icon', style: 'height:64px;width:64px', class: 'grp-icon' %>
-      <%= @group.name %>
+      <span><%= @group.name %></span>
+      <small>(<%= @transactions.size %>)</small>
     </h2>
     <hr>
-    <%# render @transactions %>
+    <%= render @transactions %>
     </div>
   </div>
 
   <div class="actions">
+    <%= button_to "New Transaction", new_entity_path(@group.id), method: :get, class: 'active' %>
     <%= button_to "Edit this Group", edit_group_path(@group), method: :get %>
     <%= button_to "Back to Groups", groups_path, method: :get %>
     <%= button_to "Destroy this Group", @group, method: :delete %>

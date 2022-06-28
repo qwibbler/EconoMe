@@ -5,4 +5,6 @@ class Group < ApplicationRecord
 
   validates :name, presence: true
   validates :name, length: { in: 3..30 }
+
+  validates :icon, presence: true
 end
