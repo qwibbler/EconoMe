@@ -1,2 +1,4 @@
-<div id="<%= dom_id group %>">
+<div id="<%= dom_id group %>" class="grp box">
+  <%= image_tag group.icon || 'no-show', style: 'height:48px;width:48px' %>
+  <%= group.name %> : <%= group.updated_at.strftime("%d-%m-%Y") %>
 </div>
