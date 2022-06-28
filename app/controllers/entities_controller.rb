@@ -23,8 +23,22 @@ class EntitiesController < ApplicationController
   def create
     @entity = Entity.new(entity_params)
 
+    @startcount = 1
+    p @startcount
+    @entity.entity_groups.each do |m|
+      m.group_id = entity_params[:entity_groups_attributes]['0'][:group_id][@startcount]
+      @startcount += 1
+      p @startcount
+    end
+
     respond_to do |format|
       if @entity.save
+        entity_params[:entity_groups_attributes]["0"][:group_id].drop(@startcount).each do |m|
+          @entity.entity_groups.build(group_id: entity_params[:entity_groups_attributes]["0"][:group_id][@startcount]).save
+          @startcount += 1
+          p @startcount
+        end
+
         format.html { redirect_to entity_url(@entity), notice: 'Entity was successfully created.' }
         format.json { render :show, status: :created, location: @entity }
       else
@@ -70,6 +84,6 @@ class EntitiesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def entity_params
-    params.require(:entity).permit(:name, :amount, entity_groups_attributes: [:group_id]).merge(user: current_user)
+    params.require(:entity).permit(:name, :amount, entity_groups_attributes: [group_id: []]).merge(user: current_user)
   end
 end

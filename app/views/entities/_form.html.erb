@@ -19,7 +19,8 @@
     </div>
     <%= f.fields_for :entity_groups do |egf| %>
       <div class="field">
-        <%= egf.collection_select :group_id, current_user.groups.all, :id, :name, {} %>
+        <% f.label :group_id, "Please Select Groups for this Entity:" %>
+        <%= egf.collection_select :group_id, current_user.groups.all, :id, :name, {}, { multiple: true } %>
       </div>
     <% end %>
   </div>
