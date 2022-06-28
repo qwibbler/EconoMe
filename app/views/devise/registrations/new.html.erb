@@ -4,26 +4,26 @@
 
     <div class="fields">
       <div class="field">
-        <%= f.text_field :name, placeholder: "Full Name", autofocus: true, autocomplete: "name" %>
+        <%= f.text_field :name, placeholder: t("full_name"), autofocus: true, autocomplete: "name" %>
       </div>
 
       <div class="field">
-        <%= f.email_field :email, placeholder: "Email", autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, placeholder: t("email"), autofocus: true, autocomplete: "email" %>
       </div>
 
       <div class="field">
-        <%= f.password_field :password, placeholder: "Password (#{@minimum_password_length} characters minimum)", autocomplete: "current-password" %>
+        <%= f.password_field :password, placeholder: "#{t('password')} (#{@minimum_password_length} #{t('min_chars')})", autocomplete: "current-password" %>
       </div>
 
       <div class="field">
-        <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, placeholder: t("pass_confirm"), autocomplete: "new-password" %>
       </div>
 
       <div class="links"><%= render "devise/shared/links" %></div>
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up" %>
+      <%= f.submit t('sign_up') %>
     </div>
   <% end %>
 </section>
