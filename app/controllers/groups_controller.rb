@@ -2,6 +2,27 @@ class GroupsController < ApplicationController
   before_action :set_group, only: %i[show edit update destroy]
   before_action :redirect
 
+  ICONS = [
+    ['Entertainment', '/assets/001-theater.png'],
+    ['Pets', '/assets/002-pet-house.png'],
+    ['Health', '/assets/003-heartbeat.png'],
+    ['Bills', '/assets/004-receipt.png'],
+    ['Games', '/assets/005-controller.png'],
+    ['Clothes', '/assets/006-hanger.png'],
+    ['Toiletries', '/assets/007-toiletries.png'],
+    ['Family', '/assets/008-family.png'],
+    ['Miscellaneous', '/assets/009-miscellaneous.png'],
+    ['Random', '/assets/010-rgb.png'],
+    ['Gifts', '/assets/011-magic-box.png'],
+    ['Travel', '/assets/012-transportation.png'],
+    ['Groceries', '/assets/013-display.png'],
+    ['Necessities', '/assets/014-must-have.png'],
+    ['Personal', '/assets/015-profile.png'],
+    ['Job', '/assets/016-job-offer.png'],
+    ['Home', '/assets/017-home.png'],
+    ['Icon', '']
+  ].freeze
+
   # GET /groups or /groups.json
   def index
     @groups = current_user.groups.all

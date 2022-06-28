@@ -1,9 +1,6 @@
-<h1>New group</h1>
-
-<%= render "form", group: @group %>
-
-<br>
-
-<div>
-  <%= link_to "Back to groups", groups_path %>
-</div>
+<section>
+  <%= render "form", group: @group %>
+  <div class="actions">
+    <%= button_to "Back to groups", groups_path, method: :get %>
+  </div>
+</section>

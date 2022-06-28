@@ -1,4 +1,4 @@
-<%= form_with(model: group) do |form| %>
+<%= form_with(model: group) do |f| %>
   <% if group.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
@@ -11,7 +11,16 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
+  <div class="fields">
+    <div class="field">
+      <%= f.text_field :name, placeholder: t("grp_name"), autofocus: true, autocomplete: "name" %>
+    </div>
+    <div class="field">
+      <%= f.select :icon, options_for_select(GroupsController::ICONS), :prompt => t('select_icon') %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class: "active" %>
   </div>
 <% end %>
