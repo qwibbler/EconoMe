@@ -135,13 +135,19 @@ form {
   width: 100vw;
 }
 
+label,
 select,
+option,
 input {
   padding: 1rem;
   background-color: #fff;
   width: 100%;
   border: 1px solid var(--color_bg);
   cursor: pointer;
+}
+
+#entity_group_id {
+  padding: 0rem;
 }
 
 option[value=""] {

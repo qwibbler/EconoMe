@@ -47,3 +47,5 @@ en:
   icon: Icon
   select_icon: Select an Icon
   add_trns: Add Transaction
+  ent_name: Entity Name
+  ent_amount: Entity Amount
