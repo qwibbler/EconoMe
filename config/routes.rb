@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  get 'categories', to: 'goups#show'
+  get 'categories', to: 'groups#index'
 
   # Defines the root path route ("/")
   root "splash#home"
