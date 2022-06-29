@@ -12,34 +12,37 @@ class EntitiesController < ApplicationController
 
   # GET /entities/new
   def new
+    @groups = current_user.groups.all
     @entity = Entity.new
     @entity.entity_groups.build
   end
 
   # GET /entities/1/edit
-  def edit; end
+  def edit
+    @groups = current_user.groups.where.not(entity: @entity)
+  end
 
   # POST /entities or /entities.json
   def create
+    @groups = current_user.groups.all
     @entity = Entity.new(entity_params)
 
-    @startcount = 1
-    p @startcount
+    grp_ids = entity_params[:entity_groups_attributes]['0'][:group_id]
+    startcount = 1
+
     @entity.entity_groups.each do |m|
-      m.group_id = entity_params[:entity_groups_attributes]['0'][:group_id][@startcount]
-      @startcount += 1
-      p @startcount
+      m.group_id = grp_ids[startcount]
+      startcount += 1
     end
 
     respond_to do |format|
       if @entity.save
-        entity_params[:entity_groups_attributes]["0"][:group_id].drop(@startcount).each do |m|
-          @entity.entity_groups.build(group_id: entity_params[:entity_groups_attributes]["0"][:group_id][@startcount]).save
-          @startcount += 1
-          p @startcount
+        grp_ids.drop(startcount).each do |_|
+          @entity.entity_groups.build(group_id: grp_ids[startcount]).save
+          startcount += 1
         end
 
-        format.html { redirect_to entity_url(@entity), notice: 'Entity was successfully created.' }
+        format.html { redirect_to groups_path, notice: 'Entity was successfully created.' }
         format.json { render :show, status: :created, location: @entity }
       else
         format.html { render :new, status: :unprocessable_entity }
