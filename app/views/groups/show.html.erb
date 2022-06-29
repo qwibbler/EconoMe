@@ -1,10 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<div class="index_items">
+  <div class="group box">
+    <h2>
+      <%= image_tag @group.icon || 'icon', style: 'height:64px;width:64px', class: 'grp-icon' %>
+      <span><%= @group.name %></span>
+      <small>$<%= @group.price %></small>
+    </h2>
+  </div>
+  <%= render @transactions %>
+</div>
 
-<%= render @group %>
-
-<div>
-  <%= link_to "Edit this group", edit_group_path(@group) %> |
-  <%= link_to "Back to groups", groups_path %>
-
-  <%= button_to "Destroy this group", @group, method: :delete %>
+<div class="actions">
+  <%= render "shared/notice" %>
+  <%= button_to "New Transaction", new_entity_path(@group.id), method: :get, class: 'green' %>
 </div>

@@ -1,2 +1,14 @@
-<div id="<%= dom_id entity %>">
-</div>
+<%= link_to entity, class: "grp box" do %>
+  <div class="grp-text wrapper">
+    <div class="grp-text txt-top">
+      <h5><%= entity.name %></h5>
+      <h4>$<%= entity.amount %></h4>
+    </div>
+    <hr>
+    <div class="grp-text txt-bottom">
+      <small>
+        <%= entity.created_at.strftime('%a, %d %b %Y') %> at <%= entity.created_at.strftime('%-I:%M %p') %></small>
+      </small>
+    </div>
+  </div>
+<% end %>

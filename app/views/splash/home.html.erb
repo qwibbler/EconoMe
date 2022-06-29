@@ -1,13 +1,11 @@
-<section class="splash">
-  <div class="header">
-    <h1 class="headline text ecno">Econo<span class="headline text me">Me</span></h1>
-    <%# <h1 class="headline swash">rix..z</h1> %>
-    <%# <h1 class="headline swash">rigxm</h1> %>
-    <h1 class="headline swash">i</h1>
-  </div>
+<div class="header">
+  <h1 class="headline text ecno">Econo<span class="headline text me">Me</span></h1>
+  <%# <h1 class="headline swash">rix..z</h1> %>
+  <%# <h1 class="headline swash">rigxm</h1> %>
+  <h1 class="headline swash">i</h1>
+</div>
 
-  <div class="main_buttons">
-    <%= button_to 'Log In', new_user_session_path, method: :get, class: 'main_btn active' %>
-    <%= button_to 'Sign up', new_user_registration_path, method: :get, class: 'main_btn' %>
-  </div>
-</section>
+<div class="main_buttons">
+  <%= button_to t('login'), new_user_session_path, method: :get, class: 'main_btn active' %>
+  <%= button_to t('sign_up'), new_user_registration_path, method: :get, class: 'main_btn' %>
+</div>

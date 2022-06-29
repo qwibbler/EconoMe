@@ -30,4 +30,22 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  login: Log In
+  sign_up: Sign Up
+  full_name: Full Name
+  email: Email
+  password: Password
+  min_chars: characters minimum
+  pass_confirm: Password Confirmation
+  pass_blank: Password (leave blank if you don't want to change it)
+  pass_current: Current Password to Confirm Changes
+  update: Update
+  cancel_account: Cancel Account
+  back: Back
+  save: Save
+  grp_name: Group Name
+  icon: Icon
+  select_icon: Select an Icon
+  add_trns: Add Transaction
+  ent_name: Entity Name
+  ent_amount: Entity Amount

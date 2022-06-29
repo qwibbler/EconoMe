@@ -1,39 +1,35 @@
-<section>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="fields">
-      <div class="field">
-        <%= f.text_field :name, placeholder: "Full Name", autofocus: true, autocomplete: "name" %>
-      </div>
-
-      <div class="field">
-        <%= f.email_field :email, placeholder: "Email", autofocus: true, autocomplete: "email" %>
-      </div>
-
-      <div class="field">
-        <%= f.password_field :password, placeholder: "Password (leave blank if you don't want to change it)", autocomplete: "new-password" %>
-      </div>
-
-      <div class="field">
-        <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", autocomplete: "new-password" %>
-      </div>
-
-      <div class="field">
-        <%= f.password_field :current_password, placeholder: "Current Password to Confirm Changes", autocomplete: "current-password" %>
-      </div>
-
-      <div class="links"><%= render "devise/shared/links" %></div>
+  <div class="fields">
+    <div class="field">
+      <%= f.text_field :name, placeholder: t("full_name"), autofocus: true, autocomplete: "name" %>
     </div>
 
-    <div class="actions">
-      <%= f.submit "Update" %>
+    <div class="field">
+      <%= f.email_field :email, placeholder: t("email"), autofocus: true, autocomplete: "email" %>
     </div>
-  <% end %>
-  
-  <h3>Cancel my account</h3>
-  
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-  
-  <%= link_to "Back", :back %>
-</section>
+
+    <div class="field">
+      <%= f.password_field :password, placeholder: t("pass_blank"), autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password_confirmation, placeholder: t("pass_confirm"), autocomplete: "new-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :current_password, placeholder: t("pass_current"), autocomplete: "current-password" %>
+    </div>
+
+    <div class="links"><%= render "devise/shared/links" %>
+      <p>Unhappy? <%= button_to t('cancel_account'), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t("update"), class: "active" %>
+  </div>
+<% end %>
+
+<%= link_to t("back"), :back %>

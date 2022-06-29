@@ -1,8 +1,8 @@
-<%= form_with(model: entity) do |form| %>
+<%= form_with model: entity, html: { class: 'form' } do |f| %>
+  <div class="fields">
   <% if entity.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(entity.errors.count, "error") %> prohibited this entity from being saved:</h2>
-
+    <div class="alert">
+      <h3><%= pluralize(entity.errors.count, "error") %> prohibited this entity from being saved:</h3>
       <ul>
         <% entity.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,7 +11,22 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.submit %>
+    <div class="field">
+      <%= f.text_field :name, placeholder: t("ent_name"), autofocus: true, autocomplete: "name" %>
+    </div>
+    <div class="field">
+      <%= f.text_field :amount, placeholder: t("ent_amount"), autocomplete: "amount" %>
+    </div>
+    <%= f.fields_for :entity_groups do |egf| %>
+      <div class="field">
+        <%= egf.label :group_id, "Please Select Groups for this Entity:" %>
+        <%= egf.collection_select :group_id, @groups, :id, :name, {}, { multiple: true, size: @groups.size } %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= render "shared/notice" %>
+    <%= f.submit t('save'), class: "active" %>
   </div>
 <% end %>

@@ -1,21 +1,50 @@
 class GroupsController < ApplicationController
+  before_action :redirect
   before_action :set_group, only: %i[show edit update destroy]
+
+  ICONS = [
+    ['Entertainment', '/assets/001-theater.png'],
+    ['Pets', '/assets/002-pet-house.png'],
+    ['Health', '/assets/003-heartbeat.png'],
+    ['Bills', '/assets/004-receipt.png'],
+    ['Games', '/assets/005-controller.png'],
+    ['Clothes', '/assets/006-hanger.png'],
+    ['Toiletries', '/assets/007-toiletries.png'],
+    ['Family', '/assets/008-family.png'],
+    ['Miscellaneous', '/assets/009-miscellaneous.png'],
+    ['Random', '/assets/010-rgb.png'],
+    ['Gifts', '/assets/011-magic-box.png'],
+    ['Travel', '/assets/012-transportation.png'],
+    ['Groceries', '/assets/013-display.png'],
+    ['Necessities', '/assets/014-must-have.png'],
+    ['Personal', '/assets/015-profile.png'],
+    ['Job', '/assets/016-job-offer.png'],
+    ['Home', '/assets/017-home.png'],
+    ['Icon', '']
+  ].freeze
 
   # GET /groups or /groups.json
   def index
-    @groups = Group.all
+    @groups = current_user.groups.all
+    @header = { title: 'Categories' }
   end
 
   # GET /groups/1 or /groups/1.json
-  def show; end
+  def show
+    @transactions = @group.entities.all.order('created_at desc')
+    @header = { title: 'Transactions', url: edit_group_path(@group) }
+  end
 
   # GET /groups/new
   def new
     @group = Group.new
+    @header = { title: 'New Category' }
   end
 
   # GET /groups/1/edit
-  def edit; end
+  def edit
+    @header = { title: 'Edit Category' }
+  end
 
   # POST /groups or /groups.json
   def create
@@ -23,7 +52,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to group_url(@group), notice: 'Group was successfully created.' }
+        format.html { redirect_to @group, notice: 'Group was successfully created.' }
         format.json { render :show, status: :created, location: @group }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -57,6 +86,10 @@ class GroupsController < ApplicationController
 
   private
 
+  def redirect
+    redirect_to root_path unless current_user
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_group
     @group = Group.find(params[:id])
@@ -64,6 +97,6 @@ class GroupsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def group_params
-    params.fetch(:group, {})
+    params.require(:group).permit(:name, :icon).merge(user: current_user)
   end
 end

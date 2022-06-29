@@ -1,10 +1,14 @@
-<p style="color: green"><%= notice %></p>
+<div class="group entity box">
+  <h2>
+    <%# image_tag @group.icon || 'icon', style: 'height:64px;width:64px', class: 'grp-icon' %>
+    <span><%= @entity.name %></span>
+    <small>$<%= @entity.amount %></small>
+  </h2>
+  <hr>
+  <%= render @groups %>
+</div>
 
-<%= render @entity %>
-
-<div>
-  <%= link_to "Edit this entity", edit_entity_path(@entity) %> |
-  <%= link_to "Back to entities", entities_path %>
-
-  <%= button_to "Destroy this entity", @entity, method: :delete %>
+<div class="actions">
+  <%= render "shared/notice" %>
+  <%# button_to "Add Category", entities_path %>
 </div>

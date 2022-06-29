@@ -38,14 +38,10 @@ RSpec.describe Group, type: :model do
     end
   end
 
-  describe 'Icon may be' do
+  describe 'Icon should be' do
     it 'present' do
-      expect(subject).to be_valid
-    end
-
-    it 'absent' do
-      subject.icon = 'ab'
-      expect(subject).to be_valid
+      subject.icon = nil
+      expect(subject).to_not be_valid
     end
   end
 end
