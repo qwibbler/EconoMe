@@ -7,4 +7,10 @@ class Group < ApplicationRecord
   validates :name, length: { in: 3..30 }
 
   validates :icon, presence: true
+
+  def price
+    price = 0
+    entities.each { |entity| price += entity.amount }
+    price
+  end
 end

@@ -25,12 +25,12 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @groups = current_user.groups.all
+    @groups = current_user.groups.includes([:entities]).all
   end
 
   # GET /groups/1 or /groups/1.json
   def show
-    @transactions = @group.entities.all
+    @transactions = @group.entities.includes([entity_groups: [:group]]).all
   end
 
   # GET /groups/new
