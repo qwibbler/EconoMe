@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: %i[show edit update destroy]
   before_action :redirect
+  before_action :set_group, only: %i[show edit update destroy]
 
   ICONS = [
     ['Entertainment', '/assets/001-theater.png'],

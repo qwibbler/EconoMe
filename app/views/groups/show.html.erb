@@ -14,6 +14,6 @@
     <%= button_to "New Transaction", new_entity_path(@group.id), method: :get, class: 'active' %>
     <%# button_to "Edit this Group", edit_group_path(@group), method: :get %>
     <%# button_to "Back to Groups", groups_path, method: :get %>
-    <%# button_to "Destroy this Group", @group, method: :delete %>
+    <%# link_to "Destroy this Group", @group, data: { turbo_method: :delete } %>
   </div>
 </section>

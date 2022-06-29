@@ -62,7 +62,7 @@ section,
 section {
   justify-content: space-between;
   padding: 0.5rem;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
 }
 
@@ -150,7 +150,7 @@ input {
 }
 
 #entity_entity_groups_attributes_0_group_id {
-  padding: 0rem;
+  padding: 0;
 }
 
 option[value=""] {
@@ -212,6 +212,7 @@ hr {
   width: 100%;
   border: 1px solid #eee;
 }
+
 .grp-text hr {
   margin: 0;
 }
