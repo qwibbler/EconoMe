@@ -1,9 +1,7 @@
-<section id="groups" class="padding">
-  <div class="index_items">
-    <% @groups.each do |group| %>
-      <%= render group %>
-    <% end %>
-  </div>
+<div class="index_items">
+  <% @groups.each do |group| %>
+    <%= render group %>
+  <% end %>
+</div>
 
-  <div class="actions"><%= button_to "New Group", new_group_path, method: :get, class: "active" %></div>
-</section>
+<div class="actions"><%= button_to "New Group", new_group_path, method: :get, class: "active" %></div>

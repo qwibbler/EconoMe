@@ -1,29 +1,27 @@
-<section>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="fields">
-      <div class="field">
-        <%= f.text_field :name, placeholder: t("full_name"), autofocus: true, autocomplete: "name" %>
-      </div>
-
-      <div class="field">
-        <%= f.email_field :email, placeholder: t("email"), autofocus: true, autocomplete: "email" %>
-      </div>
-
-      <div class="field">
-        <%= f.password_field :password, placeholder: "#{t('password')} (#{@minimum_password_length} #{t('min_chars')})", autocomplete: "current-password" %>
-      </div>
-
-      <div class="field">
-        <%= f.password_field :password_confirmation, placeholder: t("pass_confirm"), autocomplete: "new-password" %>
-      </div>
-
-      <div class="links"><%= render "devise/shared/links" %></div>
+  <div class="fields">
+    <div class="field">
+      <%= f.text_field :name, placeholder: t("full_name"), autofocus: true, autocomplete: "name" %>
     </div>
 
-    <div class="actions">
-      <%= f.submit t('sign_up'), class: "active" %>
+    <div class="field">
+      <%= f.email_field :email, placeholder: t("email"), autofocus: true, autocomplete: "email" %>
     </div>
-  <% end %>
-</section>
+
+    <div class="field">
+      <%= f.password_field :password, placeholder: "#{t('password')} (#{@minimum_password_length} #{t('min_chars')})", autocomplete: "current-password" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password_confirmation, placeholder: t("pass_confirm"), autocomplete: "new-password" %>
+    </div>
+
+    <div class="links"><%= render "devise/shared/links" %></div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t('sign_up'), class: "active" %>
+  </div>
+<% end %>
