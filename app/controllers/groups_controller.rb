@@ -25,7 +25,7 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @groups = current_user.groups.includes([:entities]).all
+    @groups = current_user.groups.all
     @header = { title: 'Categories' }
   end
 

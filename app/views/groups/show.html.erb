@@ -1,15 +1,15 @@
-<div class="group box">
-  <h2>
-    <%= image_tag @group.icon || 'icon', style: 'height:64px;width:64px', class: 'grp-icon' %>
-    <span><%= @group.name %></span>
-    <small>$<%= @group.price %></small>
-  </h2>
-  <hr>
-  <%= render @transactions %>
+<div class="index_items">
+  <div class="group box">
+    <h2>
+      <%= image_tag @group.icon || 'icon', style: 'height:64px;width:64px', class: 'grp-icon' %>
+      <span><%= @group.name %></span>
+      <small>$<%= @group.price %></small>
+    </h2>
   </div>
+  <%= render @transactions %>
 </div>
 
 <div class="actions">
-  <%= button_to "New Transaction", new_entity_path(@group.id), method: :get, class: 'active' %>
-  <%# link_to "Destroy this Group", @group, data: { turbo_method: :delete } %>
+  <%= render "shared/notice" %>
+  <%= button_to "New Transaction", new_entity_path(@group.id), method: :get, class: 'green' %>
 </div>

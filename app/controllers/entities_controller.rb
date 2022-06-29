@@ -1,6 +1,12 @@
 class EntitiesController < ApplicationController
-  before_action :set_entity, only: %i[edit update destroy]
+  before_action :set_entity, only: %i[show edit update destroy]
   before_action :redirect
+
+  # GET /entities/1
+  def show
+    @groups = @entity.groups.all
+    @header = { title: @entity.name, url: edit_entity_path(@entity) }
+  end
 
   # GET /entities/new
   def new
@@ -13,7 +19,7 @@ class EntitiesController < ApplicationController
   # GET /entities/1/edit
   def edit
     @groups = current_user.groups.where.not(entity: @entity)
-    @header = { title: 'Edit Transaction', url: edit_entity_path(@group) }
+    @header = { title: 'Edit Transaction' }
   end
 
   # POST /entities or /entities.json

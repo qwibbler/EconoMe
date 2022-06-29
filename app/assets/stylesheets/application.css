@@ -64,7 +64,7 @@ section,
 section {
   justify-content: space-between;
   padding: 0.5rem;
-  min-height: 100vh;
+  min-height: calc(100vh - 4rem);
   width: 100vw;
 }
 
@@ -101,7 +101,8 @@ section {
 .button_to {
   width: 100%;
   display: flex;
-  padding-top: 0.5rem;
+  min-height: 1.5rem;
+  padding: 0;
 }
 
 input[type="submit"],
@@ -112,6 +113,7 @@ button {
   font-size: 1rem;
   padding: 1rem;
   margin: 0;
+  margin-top: 0.5rem;
 }
 
 input[type="submit"].active,
@@ -120,17 +122,22 @@ button.active {
   color: var(--color_bg);
 }
 
+.green {
+  background-color: var(--color_second);
+  color: white;
+  text-transform: uppercase;
+  border: 1px solid white;
+  box-shadow: 0 0 0 10px var(--color_second);
+  width: calc(100% - 20px);
+}
+
 /* Header */
 header {
   padding: 1rem;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  background-color: #3778c2;
-  background: -moz-linear-gradient(top, var(--color_main_v1), var(--color_main));
-  background: -webkit-linear-gradient(top, var(--color_main_v1), var(--color_main));
-  background: -o-linear-gradient(top, var(--color_main_v1), var(--color_main));
-  background: -ms-linear-gradient(top, var(--color_main_v1), var(--color_main));
   background: linear-gradient(to bottom, var(--color_main_v1), var(--color_main));
+  background-color: #3778c2;
 }
 
 header * {
@@ -157,7 +164,7 @@ form {
   padding-top: 2rem;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
+  min-height: calc(100vh - 4rem);
 }
 
 .actions,
@@ -249,7 +256,6 @@ hr {
 /* Transactions */
 .group {
   flex-direction: column;
-  padding-bottom: 0;
 }
 
 .group h2 {
@@ -258,6 +264,10 @@ hr {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   margin: 0;
+}
+
+.entity h2 {
+  grid-template-columns: 1fr auto;
 }
 
 .entity {
