@@ -1,7 +1,5 @@
 <div class="index_items">
-  <% @groups.each do |group| %>
-    <%= render group %>
-  <% end %>
+  <%= render @groups %>
 </div>
 
 <div class="actions"><%= button_to "New Group", new_group_path, method: :get, class: "active" %></div>

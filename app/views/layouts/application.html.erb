@@ -13,6 +13,11 @@
   </head>
 
   <body>
-    <section><%= yield %></section>
+    <% if @header %>
+      <%= render 'layouts/header' %>
+    <% end %>
+    <section>
+      <%= yield %>
+    </section>
   </body>
 </html>

@@ -1,0 +1,7 @@
+<header>
+  <h3><%= link_to '<', :back %></h3>
+  <h3><%= @header[:title].upcase %></h3>
+  <% if @header[:url] %>
+    <h3><%= link_to (@header[:urltxt] || '✎'), @header[:url] %></h3>
+  <% end %>
+</header>

@@ -26,20 +26,25 @@ class GroupsController < ApplicationController
   # GET /groups or /groups.json
   def index
     @groups = current_user.groups.includes([:entities]).all
+    @header = { title: 'Categories' }
   end
 
   # GET /groups/1 or /groups/1.json
   def show
     @transactions = @group.entities.all.order('created_at desc')
+    @header = { title: 'Transactions', url: edit_group_path(@group) }
   end
 
   # GET /groups/new
   def new
     @group = Group.new
+    @header = { title: 'New Category' }
   end
 
   # GET /groups/1/edit
-  def edit; end
+  def edit
+    @header = { title: 'Edit Category' }
+  end
 
   # POST /groups or /groups.json
   def create

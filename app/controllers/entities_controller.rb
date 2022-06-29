@@ -1,25 +1,19 @@
 class EntitiesController < ApplicationController
-  before_action :set_entity, only: %i[show edit update destroy]
+  before_action :set_entity, only: %i[edit update destroy]
   before_action :redirect
-
-  # GET /entities or /entities.json
-  def index
-    @entities = Entity.all
-  end
-
-  # GET /entities/1 or /entities/1.json
-  def show; end
 
   # GET /entities/new
   def new
     @groups = current_user.groups.all
     @entity = Entity.new
     @entity.entity_groups.build
+    @header = { title: 'New Transaction' }
   end
 
   # GET /entities/1/edit
   def edit
     @groups = current_user.groups.where.not(entity: @entity)
+    @header = { title: 'Edit Transaction', url: edit_entity_path(@group) }
   end
 
   # POST /entities or /entities.json
