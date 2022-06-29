@@ -3,7 +3,7 @@
     <h2>
       <%= image_tag @group.icon || 'icon', style: 'height:64px;width:64px', class: 'grp-icon' %>
       <span><%= @group.name %></span>
-      <small>(<%= @transactions.size %>)</small>
+      <small>$<%= @group.price %></small>
     </h2>
     <hr>
     <%= render @transactions %>
@@ -12,8 +12,8 @@
 
   <div class="actions">
     <%= button_to "New Transaction", new_entity_path(@group.id), method: :get, class: 'active' %>
-    <%= button_to "Edit this Group", edit_group_path(@group), method: :get %>
-    <%= button_to "Back to Groups", groups_path, method: :get %>
-    <%= button_to "Destroy this Group", @group, method: :delete %>
+    <%# button_to "Edit this Group", edit_group_path(@group), method: :get %>
+    <%# button_to "Back to Groups", groups_path, method: :get %>
+    <%# button_to "Destroy this Group", @group, method: :delete %>
   </div>
 </section>

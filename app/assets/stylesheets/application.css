@@ -219,6 +219,7 @@ hr {
 /* Transactions */
 .group {
   flex-direction: column;
+  padding-bottom: 0;
 }
 
 .group h2 {
@@ -226,5 +227,27 @@ hr {
   width: 100%;
   grid-template-columns: auto 1fr auto;
   align-items: center;
+  margin: 0;
+}
+
+.entity {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.entity:last-child {
+  border-bottom: none;
+}
+
+.entitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.entitle * {
   margin: 0;
 }

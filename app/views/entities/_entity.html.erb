@@ -1,5 +1,9 @@
-<div id="<%= dom_id entity %>">
-<h1><%= entity.name %>:</h1>
-<h2><%= entity.groups.size %></h2>
-<%= render entity.groups %>
+<div id="<%= dom_id entity %>" class="entity">
+  <div class="entitle">
+    <h3><%= entity.name %></h3>
+    <h4>$<%= entity.amount %></h4>
+  </div>
+  <small>
+    <%= entity.created_at.strftime('%a, %d %b %Y') %> at <%= entity.created_at.strftime('%-I:%M %p') %></small>
+  </small>
 </div>

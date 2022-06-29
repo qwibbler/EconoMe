@@ -30,7 +30,7 @@ class GroupsController < ApplicationController
 
   # GET /groups/1 or /groups/1.json
   def show
-    @transactions = @group.entities.includes([entity_groups: [:group]]).all
+    @transactions = @group.entities.all.order('created_at desc')
   end
 
   # GET /groups/new
