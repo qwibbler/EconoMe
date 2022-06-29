@@ -2,16 +2,8 @@
 
 # RSpec.describe EntityGroupsController, type: :routing do
 #   describe 'routing' do
-#     it 'routes to #index' do
-#       expect(get: '/entity_groups').to route_to('entity_groups#index')
-#     end
-
 #     it 'routes to #new' do
 #       expect(get: '/entity_groups/new').to route_to('entity_groups#new')
-#     end
-
-#     it 'routes to #show' do
-#       expect(get: '/entity_groups/1').to route_to('entity_groups#show', id: '1')
 #     end
 
 #     it 'routes to #edit' do
