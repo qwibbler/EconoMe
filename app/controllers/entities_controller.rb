@@ -43,10 +43,8 @@ class EntitiesController < ApplicationController
         end
 
         format.html { redirect_to groups_path, notice: 'Entity was successfully created.' }
-        format.json { render :show, status: :created, location: @entity }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @entity.errors, status: :unprocessable_entity }
       end
     end
   end

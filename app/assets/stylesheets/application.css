@@ -9,6 +9,8 @@
  *= require_self
  */
 
+/* stylelint-disable no-descending-specificity */
+
 @font-face {
   font-family: 'Charlotte_Southern';
   src: url('/assets/Charlotte_Southern.otf');
