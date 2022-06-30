@@ -1,0 +1,8 @@
+<div class="index_items">
+  <%= render @groups %>
+</div>
+
+<div class="actions">
+  <%= render "shared/notice" %>
+  <%= button_to "New Category", new_group_path, method: :get, class: "green" %>
+</div>

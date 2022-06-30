@@ -5,11 +5,292 @@
  * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
  * vendor/assets/stylesheets directory can be referenced here using a relative path.
  *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
  */
+
+/* stylelint-disable no-descending-specificity */
+
+@font-face {
+  font-family: 'Charlotte_Southern';
+  src: url('Charlotte_Southern.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Swash';
+  src: url('Charlotte_Southern_Swash.otf');
+}
+
+html,
+body {
+  margin: 0;
+
+  --color_main: #3778c2;
+  --color_main_v1: #61a1e9;
+  --color_second: #5fb523;
+  --color_text: #434b54;
+  --color_text_v1: #555e67;
+  --color_text_v2: #878a8f;
+  --color_text_v3: #989da3;
+  --color_bg: #f1f3f2;
+}
+
+html * {
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  background-color: var(--color_bg);
+  color: var(--color_text);
+  text-decoration: none;
+}
+
+.notice,
+.notice * {
+  color: green;
+  text-align: center;
+}
+
+.alert,
+.alert * {
+  color: red;
+  text-align: center;
+}
+
+section,
+.index_items {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  justify-content: space-between;
+  padding: 0.5rem;
+  min-height: calc(100vh - 4rem);
+  width: 100vw;
+}
+
+/* Homepage */
+.headline {
+  font-family: 'Charlotte_Southern', cursive;
+  font-size: 4.5rem;
+  text-align: center;
+  margin-top: calc(50vh - 4.5rem);
+}
+
+.headline.text {
+  line-height: 0.3;
+  margin-bottom: 0;
+}
+
+.headline.me {
+  font-size: 5.5rem;
+}
+
+.headline.swash {
+  font-family: 'Swash', fantasy;
+  font-size: 6.5rem;
+  margin-top: 0;
+  line-height: 0;
+}
+
+.main_buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.button_to {
+  width: 100%;
+  display: flex;
+  min-height: 1.5rem;
+  padding: 0;
+}
+
+input[type="submit"],
+button {
+  cursor: pointer;
+  width: 100%;
+  background-color: var(--color-bg);
+  font-size: 1rem;
+  padding: 1rem;
+  margin: 0;
+  margin-top: 0.5rem;
+  border: 1px solid var(--color_text_v3);
+}
+
+input[type="submit"].active,
+button.active {
+  background-color: var(--color_main);
+  color: var(--color_bg);
+}
+
+.green {
+  background-color: var(--color_second);
+  color: white;
+  text-transform: uppercase;
+  border: 1px solid white;
+  box-shadow: 0 0 0 10px var(--color_second);
+  width: calc(100% - 20px);
+}
+
+/* Header */
+header {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  background: linear-gradient(to bottom, var(--color_main_v1), var(--color_main));
+  background-color: #3778c2;
+}
+
+header * {
+  color: white;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: normal;
+  background: transparent;
+}
+
+header :first-child {
+  font-weight: bolder;
+}
+
+header :last-child {
+  justify-self: flex-end;
+}
+
+/* Forms */
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding-top: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  min-height: calc(100vh - 4rem);
+}
+
+.actions,
+.field,
+.field_with_errors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+}
+
+label,
+select,
+option,
+input {
+  padding: 1rem;
+  background-color: #fff;
+  width: 100%;
+  border: 1px solid var(--color_bg);
+  cursor: pointer;
+}
+
+#entity_entity_groups_attributes_0_group_id {
+  padding: 0;
+}
+
+option[value=""] {
+  color: var(--color_text_v3);
+}
+
+.links {
+  text-align: center;
+}
+
+.links * {
+  color: var(--color_text_v3);
+  margin-top: 0.5rem;
+}
+
+/* Categories */
+
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  margin: 0.25rem 0.5rem;
+  padding: 0.5rem;
+}
+
+.box * {
+  background-color: white;
+  color: var(--color_text_v2);
+}
+
+.grp-icon {
+  margin-right: 0.5rem;
+}
+
+.grp-text.wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.grp-text.txt-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.grp-text.txt-top * {
+  margin: 12px 0;
+}
+
+.grp-text h4 {
+  color: var(--color_text);
+}
+
+hr {
+  width: 100%;
+  border: 1px solid #eee;
+}
+
+.grp-text hr {
+  margin: 0;
+}
+
+/* Transactions */
+.group {
+  flex-direction: column;
+}
+
+.group h2 {
+  display: grid;
+  width: 100%;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  margin: 0;
+}
+
+.entity h2 {
+  grid-template-columns: 1fr auto;
+}
+
+.entity {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.entity:last-child {
+  border-bottom: none;
+}
+
+.entitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.entitle * {
+  margin: 0;
+}

@@ -1,0 +1,17 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="fields">
+    <div class="field">
+      <%= f.email_field :email, placeholder: t("email"), autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password, placeholder: t("password"), autocomplete: "current-password" %>
+    </div>
+
+    <div class="links"><%= render "devise/shared/links" %></div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t("login"), class: "active" %>
+  </div>
+<% end %>
