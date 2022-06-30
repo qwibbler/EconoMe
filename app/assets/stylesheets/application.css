@@ -116,6 +116,7 @@ button {
   padding: 1rem;
   margin: 0;
   margin-top: 0.5rem;
+  border: 1px solid var(--color_text_v3);
 }
 
 input[type="submit"].active,
