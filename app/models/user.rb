@@ -15,9 +15,9 @@ class User < ApplicationRecord
   def seed_groups
     return unless valid?
 
-    groups.create(name: 'Food', icon: '/assets/013-display.png')
-    groups.create(name: 'Household', icon: '/assets/017-home.png')
-    groups.create(name: 'Medical', icon: '/assets/003-heartbeat.png')
-    groups.create(name: 'Travel', icon: '/assets/012-transportation.png')
+    groups.create(name: 'Food', icon: '013-display.png')
+    groups.create(name: 'Household', icon: '017-home.png')
+    groups.create(name: 'Medical', icon: '003-heartbeat.png')
+    groups.create(name: 'Travel', icon: '012-transportation.png')
   end
 end
