@@ -3,6 +3,9 @@
 # EconoMe
 
 > A budgeting app, where you can put in your daily expenditure, sort it into categories, and then see the breakdown of the expenditures per category. Made with Ruby on Rails.
+
+# [Live Demo](https://econo-me.herokuapp.com/)
+
 ![splash_page](./app/assets/images/home.png)
 
  |   |   |   |
