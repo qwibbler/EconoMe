@@ -25,14 +25,14 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @groups = current_user.groups.all
+    @groups = current_user.groups.includes([:entity_groups]).all
     @header = { title: 'Categories' }
   end
 
   # GET /groups/1 or /groups/1.json
   def show
     @transactions = @group.entities.all.order('created_at desc')
-    @header = { title: @group.name, url: edit_group_path(@group) }
+    @header = { title: 'Transactions', url: edit_group_path(@group) }
   end
 
   # GET /groups/new
