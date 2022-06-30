@@ -3,23 +3,23 @@ class GroupsController < ApplicationController
   before_action :set_group, only: %i[show edit update destroy]
 
   ICONS = [
-    ['Entertainment', '/001-theater.png'],
-    ['Pets', '/002-pet-house.png'],
-    ['Health', '/003-heartbeat.png'],
-    ['Bills', '/004-receipt.png'],
-    ['Games', '/005-controller.png'],
-    ['Clothes', '/006-hanger.png'],
-    ['Toiletries', '/007-toiletries.png'],
-    ['Family', '/008-family.png'],
-    ['Miscellaneous', '/009-miscellaneous.png'],
-    ['Random', '/010-rgb.png'],
-    ['Gifts', '/011-magic-box.png'],
-    ['Travel', '/012-transportation.png'],
-    ['Groceries', '/013-display.png'],
-    ['Necessities', '/014-must-have.png'],
-    ['Personal', '/015-profile.png'],
-    ['Job', '/016-job-offer.png'],
-    ['Home', '/017-home.png']
+    ['Entertainment', '001-theater.png'],
+    ['Pets', '002-pet-house.png'],
+    ['Health', '003-heartbeat.png'],
+    ['Bills', '004-receipt.png'],
+    ['Games', '005-controller.png'],
+    ['Clothes', '006-hanger.png'],
+    ['Toiletries', '007-toiletries.png'],
+    ['Family', '008-family.png'],
+    ['Miscellaneous', '009-miscellaneous.png'],
+    ['Random', '010-rgb.png'],
+    ['Gifts', '011-magic-box.png'],
+    ['Travel', '012-transportation.png'],
+    ['Groceries', '013-display.png'],
+    ['Necessities', '014-must-have.png'],
+    ['Personal', '015-profile.png'],
+    ['Job', '016-job-offer.png'],
+    ['Home', '017-home.png']
   ].freeze
 
   # GET /groups or /groups.json
