@@ -13,12 +13,12 @@
 
 @font-face {
   font-family: 'Charlotte_Southern';
-  src: url('/assets/Charlotte_Southern.otf');
+  src: url('Charlotte_Southern.otf') format('opentype');
 }
 
 @font-face {
   font-family: 'Swash';
-  src: url('/assets/Charlotte_Southern_Swash.otf');
+  src: url('Charlotte_Southern_Swash.otf');
 }
 
 html,
