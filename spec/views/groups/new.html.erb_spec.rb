@@ -1,14 +1,33 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# RSpec.describe 'groups/new', type: :view do
-#   before(:each) do
-#     assign(:group, Group.new)
-#   end
+RSpec.describe 'groups/new', type: :feature do
+  before do
+    login
 
-#   it 'renders new group form' do
-#     render
+    @group = Group.first
+    visit new_group_path(@group)
+  end
 
-#     assert_select 'form[action=?][method=?]', groups_path, 'post' do
-#     end
-#   end
-# end
+  it 'renders header' do
+    expect(page).to have_selector('header')
+    expect(page).to have_link('<')
+    expect(page).to have_content('NEW CATEGORY')
+  end
+
+  it 'renders the edit group form' do
+    expect(page).to have_selector('form[action="/groups"][method=post]')
+  end
+
+  it 'renders the name input' do
+    expect(page).to have_selector('input#group_name')
+  end
+
+  it 'renders the icon dropdown' do
+    expect(page).to have_selector('select#group_icon')
+    expect(page).to have_selector('option')
+  end
+
+  it 'renders the submit input' do
+    expect(page).to have_selector('input[name=commit].active')
+  end
+end

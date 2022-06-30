@@ -5,7 +5,7 @@ class EntitiesController < ApplicationController
   # GET /entities/1
   def show
     @groups = @entity.groups.all
-    @header = { title: @entity.name, url: edit_entity_path(@entity) }
+    @header = { title: 'Transaction', url: edit_entity_path(@entity) }
   end
 
   # GET /entities/new
