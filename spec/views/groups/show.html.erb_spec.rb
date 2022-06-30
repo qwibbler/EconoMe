@@ -11,7 +11,7 @@ RSpec.describe 'groups/show', type: :feature do
   it 'renders header' do
     expect(page).to have_selector('header')
     expect(page).to have_link('<')
-    expect(page).to have_content(@group.name.upper)
+    expect(page).to have_content(@group.name.upcase)
   end
 
   it 'renders total price' do

@@ -15,7 +15,7 @@ RSpec.describe 'entities/new', type: :feature do
   end
 
   it 'renders new entity form' do
-    expect(page).to have_selector('form[action="/entities"][method=post]') #, entities_path, 'post'
+    expect(page).to have_selector('form[action="/entities"][method=post]') # , entities_path, 'post'
   end
 
   it 'renders the name input' do
