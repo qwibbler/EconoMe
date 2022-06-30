@@ -13,7 +13,7 @@
 
 @font-face {
   font-family: 'Charlotte_Southern';
-  src: font-url('Charlotte_Southern.otf') format('opentype');
+  src: url('Charlotte_Southern.otf') format('opentype');
 }
 
 @font-face {
