@@ -32,4 +32,8 @@ RSpec.describe User, type: :model do
       expect(subject).to_not be_valid
     end
   end
+
+  it 'should start with 4 groups' do
+    expect(subject.groups.size).to eq(4)
+  end
 end

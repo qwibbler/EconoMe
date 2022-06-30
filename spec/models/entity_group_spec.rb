@@ -12,4 +12,14 @@ RSpec.describe EntityGroup, type: :model do
   it 'should be valid' do
     expect(subject).to be_valid
   end
+
+  it 'should have entity' do
+    subject.entity = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'should have group' do
+    subject.group = nil
+    expect(subject).to_not be_valid
+  end
 end

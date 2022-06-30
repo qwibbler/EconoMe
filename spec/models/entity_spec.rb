@@ -38,7 +38,7 @@ RSpec.describe Entity, type: :model do
     end
   end
 
-  describe 'Amount must be' do
+  describe 'Amount should  be' do
     it 'present' do
       subject.amount = nil
       expect(subject).to_not be_valid
@@ -50,7 +50,6 @@ RSpec.describe Entity, type: :model do
     end
 
     it 'greater than or equal to zero' do
-      expect(subject).to be_valid
       subject.amount = -1
       expect(subject).to_not be_valid
     end

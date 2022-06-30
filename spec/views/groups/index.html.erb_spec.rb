@@ -1,15 +1,27 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# RSpec.describe 'groups/index', type: :view do
-#   before(:each) do
-#     assign(:groups, [
-#              Group.create!,
-#              Group.create!
-#            ])
-#   end
+RSpec.describe 'groups/index', type: :feature do
+  before do
+    login
 
-#   it 'renders a list of groups' do
-#     render
-#     cell_selector = Rails::VERSION::STRING >= '7' ? 'div>p' : 'tr>td'
-#   end
-# end
+    @groups = Group.all
+    visit groups_path
+  end
+
+  it 'renders header' do
+    expect(page).to have_selector('header')
+    expect(page).to have_link('<')
+    expect(page).to have_content('CATEGORIES')
+  end
+
+  it 'renders all groups' do
+    @groups.each do |group|
+      expect(page).to have_content(group.name)
+    end
+  end
+
+  it 'renders new button' do
+    expect(page).to have_selector('button.green')
+    expect(page).to have_content('New Category')
+  end
+end

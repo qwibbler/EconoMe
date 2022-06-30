@@ -44,4 +44,10 @@ RSpec.describe Group, type: :model do
       expect(subject).to_not be_valid
     end
   end
+
+  it 'should correctly add price' do
+    g = User.find_by(name: 'Anonymous').groups
+    expect(g.first.price).to be(700)
+    expect(g.last.price).to be(500)
+  end
 end
