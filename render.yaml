@@ -1,0 +1,19 @@
+databases:
+  - name: econome
+    databaseName: econome
+    user: econome
+
+services:
+  - type: web
+    name: econome
+    env: ruby
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: econome
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
